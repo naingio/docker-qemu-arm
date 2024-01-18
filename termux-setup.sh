@@ -1,23 +1,16 @@
-export URL=https://raw.githubusercontent.com/egandro/docker-qemu-arm
-export BRANCH=master
+# termux folder (uncomment if you are using proot-distro)
+# export PREFIX=/data/data/com.termux/files/usr
 
-pkg install -y expect wget qemu-utils qemu-common qemu-system-x86_64-headless openssh
+pkg install -y expect qemu-utils qemu-common qemu-system-x86_64-headless openssh
 
 mkdir -p alpine
 cd alpine
 
-if [ ! -f "config.env" ]; then
-    # get the default config file
-    wget -q -c -t0 ${URL}/${BRANCH}/config.env
-fi
+. ../config.env
 
-# URL / BRANCH might be overwritten here
-. config.env
-
-wget -q -c -t0 ${URL}/${BRANCH}/answerfile
-wget -q -c -t0 ${URL}/${BRANCH}/ssh2qemu.sh
+cp ../answerfile .
+cp ../ssh2qemu.sh .
+cp ../startqemu.sh .
 chmod +x ./ssh2qemu.sh
-wget -q -c -t0 ${URL}/${BRANCH}/startqemu.sh
 chmod +x ./startqemu.sh
-wget -q -c -t0 ${URL}/${BRANCH}/installqemu.expect
-expect -f installqemu.expect
+expect -f ../installqemu.expect
