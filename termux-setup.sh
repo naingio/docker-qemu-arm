@@ -1,5 +1,4 @@
-# termux folder (uncomment if you are using proot-distro)
-# export PREFIX=/data/data/com.termux/files/usr
+#!/bin/bash
 
 pkg install -y expect qemu-utils qemu-common qemu-system-x86_64-headless openssh
 
