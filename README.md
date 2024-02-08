@@ -22,13 +22,15 @@ Just remember to update the alpine-virt version to the latest and use my [answer
 
 ## Android Phone/Tablet with Termux
 
-⚠️ Using **proot-distro**? Uncomment `export TERMUX` line on `termux-setup.sh`
+⚠️ Using **proot-distro**? Uncomment `export PREFIX` line on `config.env`
+⚠️ Using **proot-distro** with **ubuntu**? Use `./ubuntu-setup.sh` instead of `./termux-setup.sh`
 
 ```bash
 $ git clone https://github.com/antonyz89/docker-qemu-arm
 $ cd docker-qemu-arm
 $ ./termux-setup.sh
 ```
+
 
 ## Raspberry Pi OS
 
